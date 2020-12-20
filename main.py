@@ -44,7 +44,7 @@ page_count = page_count.replace(" ", "")
 page_count = page_count.split("Page")
 page_count = page_count[1].split("of")
 page_count_int = int(page_count[0])
-page_count_int = int(5)
+page_count_int = int(1)
 
 data_page=[]
 for j in range(page_count_int+1):
@@ -102,7 +102,7 @@ for i in data_page:
             
         try:
             apply_link = browsers.find_elements_by_xpath("//a[contains(@class, 'icl-Button--primary')]")
-            sleep(1)
+            sleep(10)
             for i in apply_link:
                 if "Apply On Company Site" in i.text:
                     r = requests.get(i.get_attribute("href")) 
@@ -168,9 +168,6 @@ df.to_csv('Indeed_ex1.csv',index=False)
 
 
 # In[14]:
-
-
-link_apply
 
 
 # In[ ]:
