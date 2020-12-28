@@ -26,7 +26,7 @@ import math
 # In[17]:
 
 
-url = "https://www.indeed.com/jobs?q=&l=Bismarck%2C+ND"
+url = "https://www.indeed.com/jobs?q=&l=Pagosa+Springs%2C+CO"
 browser = webdriver.Chrome("chromedriver.exe")
 browser.get(url)
 browsers = webdriver.Chrome("chromedriver.exe")
@@ -174,7 +174,7 @@ lst = [title,company_name,salary,description]
  
 df = pd.DataFrame(list(zip(logo,title,company_name,location,salary,description,link_apply)), columns =['Logo','Title','Company','Location','Salary','Description','Apply Link']) 
 df
-df.to_csv('Indeed_ex1.csv',index=False)
+df.to_csv('Indeed_ex1_Pagosa.csv',index=False)
 
 
 # In[14]:

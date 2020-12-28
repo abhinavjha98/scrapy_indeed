@@ -26,7 +26,7 @@ import math
 # In[17]:
 
 
-url = "https://www.indeed.com/jobs?q=Java&remotejob=032b3046-06a3-4876-8dfd-474eb5e7ed11"
+url = "https://www.indeed.com/jobs?q=&l=Bismarck%2C+ND"
 browser = webdriver.Chrome("chromedriver.exe")
 browser.get(url)
 browsers = webdriver.Chrome("chromedriver.exe")
@@ -111,11 +111,10 @@ for i in data_page:
                     print(r.url)
                     break
             for i in apply_links:
-                if "Apply Now" in i.text:
-                    link_apply.append(browsers.current_url)
-                    urrl = browsers.get(j.get_attribute("href"))
-                    print(urrl)
-                    break
+            	if "Apply Now" in i.text:
+            		link_apply.append(browsers.current_url)
+            		print(link_apply.append(browsers.current_url))
+            		break
             if link_apply is None:
                 print("Hello")
         except NoSuchElementException:
@@ -175,7 +174,7 @@ lst = [title,company_name,salary,description]
  
 df = pd.DataFrame(list(zip(logo,title,company_name,location,salary,description,link_apply)), columns =['Logo','Title','Company','Location','Salary','Description','Apply Link']) 
 df
-df.to_csv('Indeed_ex1_Java_Remote.csv',index=False)
+df.to_csv('Indeed_ex1_bismarck.csv',index=False)
 
 
 # In[14]:
