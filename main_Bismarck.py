@@ -74,9 +74,10 @@ for i in data_page:
         except NoSuchElementException:
             title.append("")
         try:
-            co_name = browsers.find_element_by_class_name("jobsearch-InlineCompanyRating")
+            co_name = browsers.find_element_by_class_name("jobsearch-CompanyAvatar-cta")
             c_name = co_name.text
-            c_name = c_name.split("reviews\n-\n")
+            c_name = c_name.split("from ")
+            print(c_name[1])
             location.append(c_name[1])
         except IndexError:
             location.append("")
@@ -106,14 +107,14 @@ for i in data_page:
             apply_links = browsers.find_elements_by_xpath("//button[contains(@class, 'icl-Button')]")
             for i in apply_link:
                 if "Apply On Company Site" in i.text:
-                    r = requests.get(i.get_attribute("href")) 
+                    r = requests.get(i.get_attribute("href"),verify=False) 
                     link_apply.append(r.url)
                     print(r.url)
                     break
             for i in apply_links:
             	if "Apply Now" in i.text:
             		link_apply.append(browsers.current_url)
-            		print(link_apply.append(browsers.current_url))
+            		print(browsers.current_url)
             		break
             if link_apply is None:
                 print("Hello")
